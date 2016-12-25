@@ -1,10 +1,15 @@
 {
   "meta": {
-    "username": "put your username here",
-    "repositoryName": "put your repository name here",
+    "username": "agates4",
+    "repositoryName": "agates4.github.io",
     "branch": "master"
   },
+  "site": {
+    "title": "Mica's Blog",
+    "description": "For Mica's Christmas :)"
+  },
+  "socialnetwork": {},
   "theme": {
-    "name": "Casper"
+    "name": "casper"
   }
 }

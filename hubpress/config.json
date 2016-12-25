@@ -4,7 +4,12 @@
     "repositoryName": "agates4.github.io",
     "branch": "master"
   },
+  "site": {
+    "title": "Mica's Blog",
+    "description": "For Mica's Christmas :)"
+  },
+  "socialnetwork": {},
   "theme": {
-    "name": "Casper"
+    "name": "casper"
   }
 }

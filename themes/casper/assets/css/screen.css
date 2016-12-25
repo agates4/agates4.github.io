@@ -1589,15 +1589,12 @@ body:not(.post-template) .post-title {
     border-bottom: #bbc7cc 1px solid;
 }
 
-.poweredby:before {
-  content: "Aron's test";
-}
-
 .poweredby {
     display: block;
     width: 45%;
     float: right;
     text-align: right;
+    content: "Aron's test";
 }
 
 .copyright {

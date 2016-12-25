@@ -1652,13 +1652,11 @@ span.CodeMirror-selectedtext {
 #asciidoc-render .site-footer a:hover {
     color: #50585D
 }
-.poweredby:before {
-  content: "Aron's test";
-}
 #asciidoc-render .poweredby {
     display: block;
     width: 45%;
     float: right;
+    content: "Aron's test";
     text-align: right
 }
 #asciidoc-render .copyright {

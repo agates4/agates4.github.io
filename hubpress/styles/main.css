@@ -1656,7 +1656,6 @@ span.CodeMirror-selectedtext {
     display: block;
     width: 45%;
     float: right;
-    content: "Aron's test";
     text-align: right
 }
 #asciidoc-render .copyright {

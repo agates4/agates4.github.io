@@ -1594,7 +1594,6 @@ body:not(.post-template) .post-title {
     width: 45%;
     float: right;
     text-align: right;
-    content: "Aron's test";
 }
 
 .copyright {

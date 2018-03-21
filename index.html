@@ -1,83 +1,71 @@
-<img src="cars.png" alt="Lights" style="width:100%">
-This visualization shows the relationship between the power and efficiency of cars (through MPG and horsepower) as well as their origin and manufacturer.
-As you can see through the graph, the American cars have the highest MPG across the board, as well as the largest horsepower (the size of the boxes).
-Japanese cars come second with their horsepower, and European cars come dead last in both power and efficiency.
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+    body {
+        background: linear-gradient(to right, rgba(47,105,248,1), rgba(252,106,106,1));;
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+        -moz-box-shadow: 0 8px 6px -6px #999;
+        box-shadow:0 1px 6px 1px rgba(70,70,70,.3)
+    }
+</style>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<body>
 
-<img src="cereals.png" alt="Lights" style="width:100%">
-In this visualization, the cereal manufacturers are lumped together through all their cereals and measured by their cummulative weight and calorie relation. 
-The larger the circle, the larger the weight. We can see that manufacturer K and G are very closely tied with weighty and calorie filled cereals,
-with P following in 3rd. R Q and N each have similar moderate relative weight / calories, and A is the healthiest and lightest of the manufacturers.
+    <div class="row align-items-center">
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+        <div class="col-4"></div>
 
-<img src="films.png" alt="Lights" style="width:100%">
-This is a pretty one - we can see that the action subject has the largest outlier in film length, and is also about equal to comedy
-in frequency. Drama comes in first place with frequency and length - those films are the longest! Other genres besides action, comedy, and drama appear
-far and few between in the 1900s. Drama is the king in this time period - but comedy and action are not that far behind (at least, comparatively
-to mystery, science fiction, war, music, horror, and westerns!)
+        <div class="col">
+                                    
+            <div class="card" style="margin: 3%">
+                <div class="card-body">
+                    <h5 class="card-title">Cars Visualization</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">a1-cars.csv</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="visuals/cars.html" class="card-link">Open</a>
+                </div>
+            </div>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+            <div class="card" style="margin: 3%">
+                <div class="card-body">
+                    <h5 class="card-title">Cereals Visualization</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">a1-cereals.csv</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="visuals/cereals.html" class="card-link">Open</a>
+                </div>
+            </div>
 
-<img src="grocery.png" alt="Lights" style="width:100%">
-The highest income occupations are the ones in the "other" and "professional" categories with the retired and skilled categories
-each having their own outliers. The other category is more sparesly put than the other ones, but we can safely say that
-the Clerical, Farm, Laborer, and Military categories are the poorest of the bunch. Also, it seems the payment method doesn't have
-a much relationship with the occupation or income level - although one could say that the storecard is mostly used by 
-poorer occupations and that debitcard is middleclass = while check is upper middle class and cash peaks the income level charts.
-</thead>
+            <div class="card" style="margin: 3%">
+                <div class="card-body">
+                    <h5 class="card-title">Film Visualization</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">a1-film.csv</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="visuals/films.html" class="card-link">Open</a>
+                </div>
+            </div>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+            <div class="card" style="margin: 3%">
+                <div class="card-body">
+                    <h5 class="card-title">Funds Visualization</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">a1-mutualfunds.csv</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="visuals/funds.html" class="card-link">Open</a>
+                </div>
+            </div>
 
-<img src="mutual funds.png" alt="Lights" style="width:100%">
-Here we are comparing 1yr and 10yr mutual fund growth. In the 1yr, cumulative growth over the year is much more negatively driven 
-in the 1 star category, while 2 stars comes predictably second and 3 third - generally, we can say that the number of stars correlates
-with the rate and amount of growth (1 star being the least, 5 stars being the highest). 
-As far as 1yr vs 10yr goes - 1 year gains are much higher than 10 year. It seems much more worth to place value in 
-large growth / large value mutual funds in a 1 year period than it is in a 10 year period. Predictably, small value and small growth 
-drew the worst performance.
+            <div class="card" style="margin: 3%">
+                <div class="card-body">
+                    <h5 class="card-title">Grocery Store Visualization</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">a1-grocerystoresurvey.csv</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="visuals/groceries.html" class="card-link">Open</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-4"></div>
+        
+    </div>
+
+</body>

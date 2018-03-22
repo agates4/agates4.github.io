@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+    text {
+        font: 10px sans-serif;
+    }
+
+    circle {
+        stroke: #565352;
+        stroke-width: 1;
+    }
+</style>
+
+<body>
+    <div id="title" align="center">
+        <h2>Cars</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h5>Model Year</h5>
+            <div id="myDropDown" class="form-group"> </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Cylinders</h3>
+                <div id="bubbleCylinders"></div>
+            </div>
+            <div class="col-md-6">
+                <h3>Acceleration</h3>
+                <div id="bubbleAcceleration"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Horsepower</h3>
+                <div id="bubbleHorsepower"></div>
+            </div>
+            <div class="col-md-6">
+                <h3>MPG</h3>
+                <div id="bubbleMPG"></div>
+            </div>
+        </div>
+        <div>
+        </div>
+    </div>
+    <script src="../scripts/d3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../scripts/bootstrap/css/bootstrap.css">
+    <script src="../D3Scripts/bubble.js"></script>
+    <script src="../D3Scripts/Utility.js"></script>
+    <script>
+        d3.csv("../data/a1-cars.csv", function (error, data) {
+            if (error) throw error;
+
+            var x_elements = d3.set(data.map(function (item) {
+                return item["Model Year"];
+            })).values();
+
+            var arr = new Array();
+            x_elements.forEach(element => {
+                arr.push({
+                    "Model Year": element
+                });
+            });
+            var select = populateDropDown(arr, "#myDropDown", "Model Year");
+
+            select.on("change", function (d) {
+                var value = d3.select(this).property("value");
+                var filterdata = filterData(data, 'Model Year', value);
+
+                d3.select("#bubbleCylinders").select("svg").remove();
+                d3.select("#bubbleAcceleration").select("svg").remove();
+                d3.select("#bubbleMPG").select("svg").remove();
+                d3.select("#bubbleHorsepower").select("svg").remove();
+                DrawBubble("#bubbleCylinders", filterdata, "Manufacturer", "Cylinders");
+                DrawBubble("#bubbleAcceleration", filterdata, "Manufacturer", "Acceleration");
+                DrawBubble("#bubbleMPG", filterdata, "Manufacturer", "MPG");
+                DrawBubble("#bubbleHorsepower", filterdata, "Manufacturer", "Horsepower");
+            });
+
+            var filterdata = filterData(data, 'Model Year', "70");
+            DrawBubble("#bubbleCylinders", filterdata, "Manufacturer", "Cylinders");
+            DrawBubble("#bubbleAcceleration", filterdata, "Manufacturer", "Acceleration");
+            DrawBubble("#bubbleMPG", filterdata, "Manufacturer", "MPG");
+            DrawBubble("#bubbleHorsepower", filterdata, "Manufacturer", "Horsepower");
+        });
+    </script>
+</body>

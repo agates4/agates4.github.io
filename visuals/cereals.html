@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<script src="../scripts/d3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="../scripts/bootstrap/css/bootstrap.css">
+
+<head>
+    <title>Cereals</title>
+</head>
+
+<body bgcolor='white'>
+    <div id="title" align="center">
+        <h2>Cereals</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="chart1"></div>
+
+            <div class="col-md-6" id="chart2"></div>
+        </div>
+    </div>
+    <!--Adding JS files for Charts-->
+    <script src="../D3Scripts/scatterPlot.js"></script>
+    <script src="../D3Scripts/horizontalStackedBar.js"></script>
+    <!--Calling Chart Drawing Functions with length width paremeter-->
+    <script>
+        d3.csv("../data/a1-cereals.csv", function (data) {
+            // Data filteration remove rows containe negative value
+            data = data.filter(function (d) {
+                if (d["Cups per Serving"] >= 0 && d["Serving Size Weight"] >= 0 && d[
+                        "Vitamins and Minerals"] >= 0 && d["Potassium"] >= 0 && d["Display Shelf"] >= 0 &&
+                    d["Sugars"] >= 0 &&
+                    d["Carbs"] >= 0 && d["Dietary Fiber"] >= 0 && d["Sodium"] >= 0 && d["Fat"] >= 0 &&
+                    d["Protein (g)"] >= 0 && d["Calories"] >= 0) {
+                    return d;
+                }
+            });
+            // Average values for Manufacturer
+            var nested_data = d3.nest()
+                .key(function (d) {
+                    return d.Manufacturer;
+                })
+                .rollup(function (leaves) {
+                    return d3.mean(leaves, function (d) {
+                        return parseFloat(d.Calories);
+                    })
+                })
+                .entries(data);
+            // Draw Scatter Map
+            drawScaterChart('#chart1', data);
+            // Draw Bar Chart
+            drawBarChart('#chart2', nested_data);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+
+    .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+    }
+
+    #tooltip {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+    }
+
+    #tooltip.hidden {
+        display: none;
+    }
+
+    #tooltip p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 12px;
+        line-height: 20px;
+    }
+</style>
+
+<head>
+    <title>Films</title>
+</head>
+<script src="../scripts/d3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="../scripts/bootstrap/css/bootstrap.css">
+
+<body bgcolor='white'>
+    <div id="title" align="center">
+        <h2>Films</h2>
+    </div>
+    <div id="heatmap"></div>
+    <!--Adding JS files for Charts-->
+    <script src="../D3Scripts/heatmap.js"></script>
+    <script src="../D3Scripts/Utility.js"></script>
+    <script>
+        d3.csv('../data/a1-film.csv', function (response) {
+            DrawHeatmap("#heatmap", response)
+        });
+    </script>
+</body>
+
+</html>

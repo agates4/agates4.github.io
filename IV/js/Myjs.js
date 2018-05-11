@@ -88,7 +88,7 @@ var rt = cw(function(data,cb){
 	}
 });
 
-rt.data(cw.makeUrl("js/trips.json"));
+rt.data(cw.makeUrl("https://raw.githubusercontent.com/agates4/agates4.github.io/master/IV/js/trips.json"));
 //*****************************************************************************************************************************************	
 //*****************************************************************************************************************************************
 // Drawing Shapes (polyline, polygon, circle, rectangle, marker) Event:
@@ -101,13 +101,32 @@ map.on('draw:created', function (e) {
 		layer = e.layer;
 	
 	if (type === 'rectangle') {
-		console.log(layer.getLatLngs()); //Rectangle Corners points
+		// console.log(layer.getLatLngs()); //Rectangle Corners points
 		var bounds=layer.getBounds();
 		rt.data([[bounds.getSouthWest().lng,bounds.getSouthWest().lat],[bounds.getNorthEast().lng,bounds.getNorthEast().lat]]).
-		then(function(d){var result = d.map(function(a) {return a.properties;});
-		console.log(result);		// Trip Info: avspeed, distance, duration, endtime, maxspeed, minspeed, starttime, streetnames, taxiid, tripid
-		DrawRS(result);
-		});
+        then(function(d)
+        {
+            var streetnames = d.map(function(a) {
+                return a.properties.streetnames;
+            });
+
+            var avspeed = d.map(function(a) {
+                return a.properties.avspeed;
+            });
+
+            var distance = d.map(function(a) {
+                return a.properties.distance;
+            });
+
+            var duration = d.map(function(a) {
+                return a.properties.duration;
+            });
+
+            getStreetWords(streetnames);
+
+            // console.log(result);		// Trip Info: avspeed, distance, duration, endtime, maxspeed, minspeed, starttime, streetnames, taxiid, tripid
+            DrawRS(result);
+        });
 	}
 	
 	drawnItems.addLayer(layer);			//Add your Selection to Map  
@@ -133,4 +152,20 @@ function DrawRS(trips) {
 			polyline.addLatLng([parseFloat(TPT[y+1]), parseFloat(TPT[y])]);
 		}
 	}		
+}
+
+function getStreetWords(result) {
+    var counts = {};
+    for (var i = 0; i < result.length; i++) {
+        var num = result[i];
+        for (let index = 0; index < num.length; index++) {
+            const element = num[index];
+            if(counts[element]) {
+                counts[element] += 1;
+            }
+            else
+                counts[element] = 1;
+        }
+    }
+    console.log(counts);
 }
